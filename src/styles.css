@@ -1,1 +1,87 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --background-color: #edf7ff;
+  --background-color-2: #fff;
+  --color-1: #85c8ff;
+  --color-1-alpha: #85c8ff60;
+  --text-color: #292929;
+  --color-red: #ff3333;
+  --color-red-alpha: #ff333380;
+  --color-grey: #acacac;
+  --animation: all 0.3s ease-in;
+  --border-radius-1: 1rem;
+  --border-radius-2: 2rem;
+  --recipe-image-height: 12rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  margin: 0;
+}
+p,
+a {
+  margin: 0;
+  font-size: 0.75rem;
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Raleway', sans-serif;
+  overflow-x: hidden;
+}
+.cont {
+  max-width: 1140px;
+  padding: 0 1.5rem;
+  margin: 0 auto;
+}
+.modal-content {
+  border-radius: var(--border-radius-1);
+  border: none;
+  padding: 2rem;
+}
+
+.form-element {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.form-element label {
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+  padding-left: 0.25rem;
+  font-weight: 700;
+}
+.form-element input,
+.form-element textarea {
+  border-radius: var(--border-radius-1);
+  border: 1px solid #434343;
+  border-radius: var(--border-radius-1);
+  outline: none;
+  padding: 0.25rem 0.75rem;
+  max-width: 100%;
+}
+.form-button {
+  display: block;
+  min-width: 9rem;
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  transition: var(--animation);
+  border-radius: var(--border-radius-1);
+  background-color: var(--color-1);
+  color: var(--background-color-2);
+  border: 1px solid var(--color-1-alpha);
+  box-shadow: none;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
