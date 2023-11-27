@@ -1,0 +1,46 @@
+.main-navbar {
+  background-color: var(--background-color-2);
+  padding: 0.5rem 0;
+  font-size: 0.75rem;
+}
+.main-navbar i-feather {
+  height: 1rem;
+  width: 1rem;
+}
+.main-navbar p {
+  font-size: 0.75rem;
+}
+.main-navbar .logout i-feather {
+  color: var(--color-red);
+  margin-top: -3px;
+}
+.search-button i-feather {
+  height: calc(1rem + 6px);
+  width: calc(1rem + 6px);
+}
+
+.app-name a {
+  font-size: 2rem;
+  margin-bottom: 0;
+  color: var(--text-color);
+}
+.search-button {
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+.search-button i-feather {
+  color: #434343;
+}
+.input-wrapper input {
+  border: 1px solid #434343;
+  border-radius: var(--border-radius-1);
+  outline: none;
+  padding: 0.25rem 0.75rem;
+  max-width: 100%;
+  width: 14rem;
+}
+
+.form-wrapper {
+  margin-right: -2.5rem;
+}

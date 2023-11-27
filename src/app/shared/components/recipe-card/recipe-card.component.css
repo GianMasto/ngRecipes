@@ -1,0 +1,87 @@
+.recipe {
+  border-radius: var(--border-radius-1);
+  background-color: var(--background-color-2);
+  overflow: hidden;
+  box-shadow: var(--color-1-alpha) 0px 0 20px 0px;
+  transition: var(--animation);
+  display: block;
+  color: var(--text-color);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.recipe:hover {
+  box-shadow: none;
+}
+.recipe-img {
+  height: var(--recipe-image-height);
+  overflow: hidden;
+}
+.recipe-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.recipe-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.recipe-title {
+  font-size: 1.5rem;
+  font-style: normal;
+  margin-bottom: 0.5rem;
+}
+.recipe-ingredients {
+  font-style: italic;
+  margin-bottom: 0.25rem;
+}
+.recipe-buttons {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+}
+.read-more {
+  font-weight: 700;
+  color: var(--color-1);
+  transition: var(--animation);
+  padding-right: 0.3rem;
+}
+.read-more:hover {
+  color: var(--text-color);
+}
+.recipe-buttons button {
+  margin-left: 0.5rem;
+  background-color: var(--color-1-alpha);
+  text-align: center;
+  box-shadow: var(--color-1-alpha) 0px 0 20px 0px;
+  color: var(--text-color);
+  font-size: 0.7rem;
+  transition: var(--animation);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-1);
+  height: 2rem;
+  width: 2rem;
+}
+.recipe-buttons button:hover {
+  box-shadow: none;
+  border: 1px solid var(--color-1-alpha);
+}
+.recipe-buttons button.selected {
+  background-color: var(--color-1);
+  color: var(--background-color-2);
+  border: 1px solid var(--color-1-alpha);
+  box-shadow: none;
+}
+.recipe-buttons button i-feather {
+  height: 0.75rem;
+  width: 0.75rem;
+}
+.recipe-buttons .add-to-cart {
+  margin-left: auto;
+}
+.recipe-buttons .delete {
+  background-color: var(--color-red-alpha);
+}

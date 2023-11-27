@@ -1,0 +1,31 @@
+<nav class="main-navbar">
+  <div class="cont">
+    <div
+      class="d-flex justify-content-between align-items-center flex-column flex-md-row"
+    >
+      <h1 class="app-name mb-3 mb-md-0"><a routerLink="/">ngRecipes</a></h1>
+
+      <div class="mb-3 mb-md-0 mx-3">
+        <form action="">
+          <div class="d-flex form-wrapper">
+            <div class="input-wrapper me-1">
+              <input type="text" placeholder="Search recipe..." />
+            </div>
+            <button type="button" class="search-button">
+              <i-feather name="search"></i-feather>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div
+        class="d-flex align-items-center text-center flex-column flex-md-row"
+      >
+        <p class="d-inline-block me-2">Welcome, <strong>Username</strong></p>
+        <a routerLink="/auth/login" class="logout d-flex">
+          <i-feather name="log-out"></i-feather>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,35 @@
+.shopping-list-body {
+  background-color: var(--background-color-2);
+  border-radius: var(--border-radius-1);
+  box-shadow: var(--color-1-alpha) 0px 0 20px 0px;
+  padding: 2rem;
+  overflow-x: scroll;
+}
+.shopping-list-table {
+  border: 1px solid var(--text-color);
+  border-radius: var(--border-radius-1);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  min-width: 22rem;
+}
+.shopping-list-head {
+  font-weight: 700;
+}
+.shopping-list-row {
+  border-bottom: 1px solid var(--text-color);
+  display: flex;
+}
+.shopping-list-row:last-of-type {
+  border-bottom: none;
+}
+.shopping-list-row > div {
+  padding: 1rem;
+}
+.shopping-list-row > div:nth-child(1) {
+  flex: 1;
+}
+.shopping-list-row > div:nth-child(2) {
+  width: 25%;
+  border-left: 1px solid var(--text-color);
+}
