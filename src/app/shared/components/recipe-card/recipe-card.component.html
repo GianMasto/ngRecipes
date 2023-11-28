@@ -1,19 +1,17 @@
 <div class="recipe">
-  <a [routerLink]="['/recipe', 'id']" class="recipe-img">
-    <img
-      src="https://as1.ftcdn.net/v2/jpg/06/24/55/20/1000_F_624552014_QgyfYv9fkcqmXM2NwUzOmpAke07W2TVy.jpg"
-      alt=""
-    />
+  <a [routerLink]="['/recipe', recipe._id]" class="recipe-img">
+    <img [src]="recipe.imagePath" alt="" />
   </a>
   <div class="recipe-body">
-    <h2 class="recipe-title">Radish and avocado salad</h2>
-    <p class="recipe-ingredients">3 Ingredients</p>
-    <p class="recipe-excerpt mb-4">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia
-      voluptatem et a facere velit, veniam placeat esse...
+    <h2 class="recipe-title">{{ recipe.name }}</h2>
+    <p class="recipe-ingredients">
+      {{ recipe.ingredients.length }} Ingredient{{
+        recipe.ingredients.length === 1 ? '' : 's'
+      }}
     </p>
+    <p class="recipe-excerpt mb-4">{{ recipe.description }}</p>
     <div class="recipe-buttons">
-      <a [routerLink]="['/recipe', 'id']" class="read-more">Read More</a>
+      <a [routerLink]="['/recipe', recipe._id]" class="read-more">Read More</a>
       <button class="add-to-cart">
         <i-feather name="shopping-cart"></i-feather>
       </button>

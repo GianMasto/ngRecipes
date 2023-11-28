@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RecipeModel } from '@core/models/recipe.model';
+import { RecipesService } from '@shared/services/recipes.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
   buttons!: { label: string; path: string }[];
+
+  constructor(private recipesService: RecipesService) {}
+
   ngOnInit(): void {
     this.buttons = [
       {
@@ -22,5 +27,13 @@ export class HomePageComponent implements OnInit {
         path: '/shopping-list',
       },
     ];
+
+    this.recipesService.getRecipes().subscribe({
+      next: data => {
+        const arr = data as RecipeModel[];
+        this.recipesService.recipes$.next(arr);
+      },
+      error: e => console.error(e),
+    });
   }
 }
