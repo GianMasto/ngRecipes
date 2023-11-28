@@ -3,16 +3,16 @@
     <div class="login-wrapper d-flex justify-content-center align-items-center">
       <div class="login">
         <h1 class="app-name mb-4 text-center">ngRecipes</h1>
-        <form action="">
+        <form (ngSubmit)="sendSignUp()" [formGroup]="formLogin" action="">
           <div class="form-element">
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" />
+            <input formControlName="email" id="email" name="email" type="email" placeholder="Dirección de correo"/>
           </div>
           <div class="form-element">
             <label for="password">Password</label>
-            <input id="password" name="password" type="password" />
+            <input formControlName="password" id="password" name="password" type="password" placeholder="Contraseña" />
           </div>
-          <button class="form-button">Login</button>
+          <button [disabled]="formLogin.invalid" class="form-button">Login</button>
           <p class="text-center mt-2">
             or
             <a routerLink="/auth/login"><strong>Log In</strong></a>
