@@ -16,17 +16,21 @@ export class AuthService {
     private cookie: CookieService
   ) {}
 
+  // REGISTRO DE LOGIN
   sendCredentials(email: string, password: string): Observable<any> {
     const body = {
       email,
       password,
     };
     return this.http.post(`${this.URL}/api/auth/login`, body)
-    // .pipe(
-    //   tap((response: any) => {
-    //     const { idToken } = response;
-    //     this.cookie.set('token', idToken, 4, '/');
-    //   })
-    // );
+  }
+
+  // REGISTRO DE NUEVO USUARIO EN LA BD
+  sendNewCredentials(email: string, password: string):Observable <any>{
+    const body = {
+      email,
+      password,
+    };
+    return this.http.post(`${this.URL}/api/auth/signup`, body)
   }
 }

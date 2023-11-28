@@ -22,7 +22,7 @@
         class="d-flex align-items-center text-center flex-column flex-md-row"
       >
         <p class="d-inline-block me-2">Welcome, <strong>Username</strong></p>
-        <a routerLink="/auth/login" class="logout d-flex">
+        <a (click)="closeSessionAdmin()" routerLink="/auth/login" class="logout d-flex">
           <i-feather name="log-out"></i-feather>
         </a>
       </div>
