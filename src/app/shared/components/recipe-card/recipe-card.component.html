@@ -5,9 +5,8 @@
   <div class="recipe-body">
     <h2 class="recipe-title">{{ recipe.name }}</h2>
     <p class="recipe-ingredients">
-      {{ recipe.ingredients.length }} Ingredient{{
-        recipe.ingredients.length === 1 ? '' : 's'
-      }}
+      {{ recipe.ingredients.length }}
+      Ingredient{{ recipe.ingredients.length === 1 ? '' : 's' }}
     </p>
     <p class="recipe-excerpt mb-4">{{ recipe.description }}</p>
     <div class="recipe-buttons">
@@ -15,7 +14,11 @@
       <button class="add-to-cart">
         <i-feather name="shopping-cart"></i-feather>
       </button>
-      <button class="add-to-favorites selected">
+      <button
+        class="add-to-favorites"
+        [ngClass]="{ selected: recipeService.isFavorite(recipe._id) }"
+        (click)="recipeService.toggleFavorite(recipe._id)"
+      >
         <i-feather name="bookmark"></i-feather>
       </button>
       <button class="edit">

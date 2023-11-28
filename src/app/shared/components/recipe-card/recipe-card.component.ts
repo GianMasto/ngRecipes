@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { RecipeModel } from '@core/models/recipe.model';
+import { RecipesService } from '@shared/services/recipes.service';
 
 @Component({
   selector: 'app-recipe-card',
@@ -8,4 +9,6 @@ import { RecipeModel } from '@core/models/recipe.model';
 })
 export class RecipeCardComponent {
   @Input() recipe!: RecipeModel;
+
+  constructor(public recipeService: RecipesService) {}
 }

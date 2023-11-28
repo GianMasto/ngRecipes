@@ -10,8 +10,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 })
 export class RecipesService {
   private readonly URL = environment.api;
-  private readonly token =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NTY1ZTgwY2UzMWQxNDgxNmRiMjY5OGUiLCJpYXQiOjE3MDExOTM4NTMsImV4cCI6MTcwMTIwODI1M30.k6NstfAZpXGAURRdSjqJb7DMyi6lBmy2hInWfxDSkFI';
+  private readonly token = this.cookie.get('token');
 
   recipes$ = new BehaviorSubject<RecipeModel[]>([]);
   favorites$ = new BehaviorSubject<String[]>([]);
@@ -24,8 +23,6 @@ export class RecipesService {
   getRecipes() {
     return this.http.get(`${this.URL}/recipes?auth=${this.token}`);
   }
-
-  getRecipe() {}
 
   addRecipe(body: RecipeModel) {}
 
@@ -46,14 +43,26 @@ export class RecipesService {
     this.favorites$.next(newFavsArr);
   }
 
-  addFavorite(id: string) {
+  private addFavorite(id: string) {
     const favorites = this.getFavorites();
     favorites.push(id);
     this.setFavorites(favorites);
   }
 
-  deleteFavorite(id: string) {
+  private deleteFavorite(id: string) {
     const newFavsArr = this.getFavorites().filter(el => el !== id);
     this.setFavorites(newFavsArr);
+  }
+
+  isFavorite(id: string) {
+    return this.getFavorites().includes(id);
+  }
+
+  toggleFavorite(id: string) {
+    if (this.isFavorite(id)) {
+      this.deleteFavorite(id);
+    } else {
+      this.addFavorite(id);
+    }
   }
 }

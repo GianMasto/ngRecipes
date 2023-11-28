@@ -4,9 +4,11 @@
       <div class="col-md-4 col-sm-6 pb-4">
         <app-add-recipe-card></app-add-recipe-card>
       </div>
-      <div class="col-md-4 col-sm-6 pb-4" *ngFor="let recipe of recipes">
-        <app-recipe-card [recipe]="recipe"></app-recipe-card>
-      </div>
+      <ng-container *ngIf="recipes.length > 0">
+        <div class="col-md-4 col-sm-6 pb-4" *ngFor="let recipe of recipes">
+          <app-recipe-card [recipe]="recipe"></app-recipe-card>
+        </div>
+      </ng-container>
     </div>
   </div>
 </section>

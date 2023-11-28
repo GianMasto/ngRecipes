@@ -1,8 +1,11 @@
 <section class="favorites">
   <div class="cont">
     <div class="row">
-      <div class="col-md-4 col-sm-6 pb-4">
-        <app-recipe-card></app-recipe-card>
+      <div
+        class="col-md-4 col-sm-6 pb-4"
+        *ngFor="let recipe of favoriteRecipes"
+      >
+        <app-recipe-card [recipe]="recipe"></app-recipe-card>
       </div>
     </div>
   </div>
