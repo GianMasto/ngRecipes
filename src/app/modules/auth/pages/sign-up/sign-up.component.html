@@ -6,16 +6,30 @@
         <form (ngSubmit)="sendSignUp()" [formGroup]="formLogin" action="">
           <div class="form-element">
             <label for="email">Email</label>
-            <input formControlName="email" id="email" name="email" type="email" placeholder="Dirección de correo"/>
+            <input
+              formControlName="email"
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Dirección de correo"
+            />
           </div>
           <div class="form-element">
             <label for="password">Password</label>
-            <input formControlName="password" id="password" name="password" type="password" placeholder="Contraseña" />
+            <input
+              formControlName="password"
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Contraseña"
+            />
           </div>
-          <button [disabled]="formLogin.invalid" class="form-button">Login</button>
+          <button [disabled]="formLogin.invalid" class="form-button">
+            Login
+          </button>
           <p class="text-center mt-2">
             or
-            <a routerLink="/auth/login"><strong>Log In</strong></a>
+            <a routerLink="/auth/login"><strong>Sign Up</strong></a>
           </p>
         </form>
       </div>

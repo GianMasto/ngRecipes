@@ -21,10 +21,16 @@
       >
         <i-feather name="bookmark"></i-feather>
       </button>
-      <button class="edit">
+      <button
+        class="edit"
+        *ngIf="recipe.userEmail === cookieService.get('cookieService')"
+      >
         <i-feather name="edit"></i-feather>
       </button>
-      <button class="delete">
+      <button
+        class="delete"
+        *ngIf="recipe.userEmail === cookieService.get('cookieService')"
+      >
         <i-feather name="trash"></i-feather>
       </button>
     </div>
