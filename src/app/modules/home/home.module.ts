@@ -6,9 +6,10 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { IconsModule } from 'src/app/icons/icons.module';
 import { NavButtonsComponent } from './components/nav-buttons/nav-buttons.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [HomePageComponent, NavBarComponent, NavButtonsComponent],
-  imports: [CommonModule, HomeRoutingModule, IconsModule],
+  imports: [CommonModule, HomeRoutingModule, IconsModule, FormsModule],
 })
 export class HomeModule {}
