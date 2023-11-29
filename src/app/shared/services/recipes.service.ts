@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RecipeModel } from '@core/models/recipe.model';
-import { environment } from '@env/environment';
+import { environment } from 'src/environment/environment';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
@@ -21,7 +21,7 @@ export class RecipesService {
   ) {}
 
   getRecipes() {
-    return this.http.get(`${this.URL}/recipes?auth=${this.token}`);
+    return this.http.get(`${this.URL}/api/recipes?auth=${this.token}`);
   }
 
   addRecipe(body: RecipeModel) {}
