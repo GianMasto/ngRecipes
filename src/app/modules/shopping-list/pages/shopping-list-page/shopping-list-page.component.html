@@ -8,21 +8,13 @@
               <div>Product</div>
               <div>Quantity</div>
             </li>
-            <li class="shopping-list-row">
-              <div>Lettuce</div>
-              <div>1</div>
-            </li>
-            <li class="shopping-list-row">
-              <div>Tomato</div>
-              <div>2</div>
-            </li>
-            <li class="shopping-list-row">
-              <div>Avocado</div>
-              <div>1</div>
-            </li>
-            <li class="shopping-list-row">
-              <div>Radish</div>
-              <div>5</div>
+
+            <li
+              class="shopping-list-row"
+              *ngFor="let ingredient of objectKeys(ingredients)"
+            >
+              <div>{{ ingredient }}</div>
+              <div>{{ ingredients[ingredient] }}</div>
             </li>
           </ul>
         </div>
