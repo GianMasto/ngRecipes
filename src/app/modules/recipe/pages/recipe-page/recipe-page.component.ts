@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RecipeModel } from '@core/models/recipe.model';
 import { RecipesService } from '@shared/services/recipes.service';
+import { ShoppingListService } from '@shared/services/shopping-list.service';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -15,8 +16,9 @@ export class RecipePageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private recipeService: RecipesService,
-    public cookieService: CookieService
+    public recipeService: RecipesService,
+    public cookieService: CookieService,
+    public shoppingListService: ShoppingListService
   ) {}
 
   ngOnInit() {

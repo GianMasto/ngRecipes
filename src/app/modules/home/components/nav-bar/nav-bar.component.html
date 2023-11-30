@@ -5,17 +5,22 @@
     >
       <h1 class="app-name mb-3 mb-md-0"><a routerLink="/">ngRecipes</a></h1>
 
-      <div class="mb-3 mb-md-0 mx-3">
-        <form action="">
-          <div class="d-flex form-wrapper">
-            <div class="input-wrapper me-1">
-              <input type="text" placeholder="Search recipe..." />
-            </div>
-            <button type="button" class="search-button">
-              <i-feather name="search"></i-feather>
-            </button>
+      <div class="mb-3 mb-md-0 mx-3" *ngIf="showInput">
+        <div class="d-flex form-wrapper">
+          <div class="input-wrapper me-1">
+            <input
+              (ngModelChange)="searchService.searchTerm$.next($event)"
+              [(ngModel)]="term"
+              type="text"
+              placeholder="Search recipe..."
+              name="search"
+              autocomplete="off"
+            />
           </div>
-        </form>
+          <button type="button" class="search-button">
+            <i-feather name="search"></i-feather>
+          </button>
+        </div>
       </div>
 
       <div

@@ -19,6 +19,7 @@
 .shopping-list-row {
   border-bottom: 1px solid var(--text-color);
   display: flex;
+  text-transform: capitalize;
 }
 .shopping-list-row:last-of-type {
   border-bottom: none;

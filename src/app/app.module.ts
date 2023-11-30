@@ -13,7 +13,6 @@ import { IconsModule } from './icons/icons.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InjectSessionInterceptor } from './core/interceptors/inject-session.interceptor';
 
-
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, IconsModule, HttpClientModule],
@@ -22,8 +21,8 @@ import { InjectSessionInterceptor } from './core/interceptors/inject-session.int
     {
       provide: HTTP_INTERCEPTORS,
       useClass: InjectSessionInterceptor,
-      multi: true
-    }
+      multi: true,
+    },
     // provideHttpClient(withInterceptors([authInterceptor])),
   ],
   bootstrap: [AppComponent],
