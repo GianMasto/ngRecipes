@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RecipeModel } from '@core/models/recipe.model';
 import { RecipesService } from '@shared/services/recipes.service';
-import { ShoppingListService } from '@shared/services/shopping-list.service';
 import { CookieService } from 'ngx-cookie-service';
+import { ShoppingListService } from '@shared/services/shopping-list.service';
 
 @Component({
   selector: 'app-recipe-page',
