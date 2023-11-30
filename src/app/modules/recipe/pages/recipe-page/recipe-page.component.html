@@ -16,16 +16,23 @@
             >
               {{ ingredient.amount }} {{ ingredient.name }}
             </li>
-            <li class="recipe-ingredient">Lettuce</li>
-            <li class="recipe-ingredient">Avocado</li>
-            <li class="recipe-ingredient">Radish</li>
           </ul>
 
           <div class="recipe-buttons">
-            <button class="add-to-cart">
+            <button
+              class="add-to-cart"
+              [ngClass]="{
+                selected: shoppingListService.isInShoppingList(recipe._id)
+              }"
+              (click)="shoppingListService.toggleShoppingList(recipe._id)"
+            >
               <i-feather name="shopping-cart"></i-feather>
             </button>
-            <button class="add-to-favorites selected">
+            <button
+              class="add-to-favorites"
+              [ngClass]="{ selected: recipeService.isFavorite(recipe._id) }"
+              (click)="recipeService.toggleFavorite(recipe._id)"
+            >
               <i-feather name="bookmark"></i-feather>
             </button>
             <button

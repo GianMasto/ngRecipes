@@ -11,7 +11,13 @@
     <p class="recipe-excerpt mb-4">{{ recipe.description | cutText: 150 }}</p>
     <div class="recipe-buttons">
       <a [routerLink]="['/recipe', recipe._id]" class="read-more">Read More</a>
-      <button class="add-to-cart">
+      <button
+        class="add-to-cart"
+        [ngClass]="{
+          selected: shoppingListService.isInShoppingList(recipe._id)
+        }"
+        (click)="shoppingListService.toggleShoppingList(recipe._id)"
+      >
         <i-feather name="shopping-cart"></i-feather>
       </button>
       <button
