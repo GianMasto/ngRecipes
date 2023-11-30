@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { RecipeModel } from '@core/models/recipe.model';
-import { environment } from 'src/environment/environment';
+import { RecipeModel } from '../../core/models/recipe.model';
+import { environment } from '../../../environment/environment';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 

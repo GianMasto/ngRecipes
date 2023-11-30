@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RecipeModel } from '@core/models/recipe.model';
-import { RecipesService } from '@shared/services/recipes.service';
+import { RecipeModel } from '../../../../core/models/recipe.model';
+import { RecipesService } from '../../../../shared/services/recipes.service';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
