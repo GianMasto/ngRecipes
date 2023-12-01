@@ -15,14 +15,15 @@ export class FavoritesPageComponent {
 
   ngOnInit(): void {
     this.recipesService.recipes$.subscribe({
-      next: r => (this.allRecipes = r),
-    });
-
-    this.recipesService.favorites$.subscribe({
-      next: ids => {
-        this.favoriteRecipes = this.allRecipes.filter(recipe =>
-          ids.includes(recipe._id)
-        );
+      next: r => {
+        this.allRecipes = r;
+        this.recipesService.favorites$.subscribe({
+          next: ids => {
+            this.favoriteRecipes = this.allRecipes.filter(recipe =>
+              ids.includes(recipe._id)
+            );
+          },
+        });
       },
     });
   }

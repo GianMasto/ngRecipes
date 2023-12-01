@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RecipeModel } from '@core/models/recipe.model';
 import { RecipesService } from '@shared/services/recipes.service';
 import { ShoppingListService } from '@shared/services/shopping-list.service';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-shopping-list-page',
@@ -20,22 +21,23 @@ export class ShoppingListPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipesService.recipes$.subscribe({
-      next: r => (this.allRecipes = r),
-    });
+      next: r => {
+        this.allRecipes = r;
+        this.shoppingListService.shoppingList$.subscribe({
+          next: ids => {
+            ids.forEach(id => {
+              const recipe = this.allRecipes.find(recipe => recipe._id === id);
 
-    this.shoppingListService.shoppingList$.subscribe({
-      next: ids => {
-        ids.forEach(id => {
-          const recipe = this.allRecipes.find(recipe => recipe._id === id);
-
-          recipe?.ingredients.forEach(({ amount, name }) => {
-            const key = name.toLowerCase();
-            if (name in this.ingredients) {
-              this.ingredients[key] = +this.ingredients[key] + +amount;
-            } else {
-              this.ingredients[key] = +amount;
-            }
-          });
+              recipe?.ingredients.forEach(({ amount, name }) => {
+                const key = name.toLowerCase();
+                if (name in this.ingredients) {
+                  this.ingredients[key] = +this.ingredients[key] + +amount;
+                } else {
+                  this.ingredients[key] = +amount;
+                }
+              });
+            });
+          },
         });
       },
     });
