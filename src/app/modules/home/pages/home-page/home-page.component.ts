@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import { RecipeModel } from '@core/models/recipe.model';
 import { RecipesService } from '@shared/services/recipes.service';
 
@@ -7,7 +7,7 @@ import { RecipesService } from '@shared/services/recipes.service';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements OnInit,OnDestroy {
   buttons!: { label: string; path: string }[];
 
   constructor(private recipesService: RecipesService) {}
@@ -36,4 +36,8 @@ export class HomePageComponent implements OnInit {
       error: e => console.error(e),
     });
   }
+  ngOnDestroy(): void {
+    
+  }
+  
 }

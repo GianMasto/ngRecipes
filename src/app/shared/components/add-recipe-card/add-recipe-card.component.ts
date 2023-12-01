@@ -21,6 +21,10 @@ export class AddRecipeCardComponent implements OnInit {
         Validators.required,
         Validators.minLength(4),
       ]),
+      amount: new FormControl('', [
+        Validators.required,
+        Validators.minLength(1),
+      ]),
       ingredients: new FormControl('', [
         Validators.required,
         Validators.minLength(4),
@@ -40,12 +44,15 @@ export class AddRecipeCardComponent implements OnInit {
 
   addNewRecipe($event: any): void {
     $event.preventDefault();
-    // const {_id,name,description,ingredients,imagePath,userEmail,__v}=this.formNewRecipe.value
+    const {ingredients,amount}=this.formNewRecipe.value
     const body = {
       ...this.formNewRecipe.value,
-      ingredients: [],
+      ingredients: [{
+        amount:amount,
+        name:ingredients
+      }]
     };
-    console.log(body);
+    console.log(body.ingredients);
     this.recipeService.addRecipe(body).subscribe(response => {
       console.log(response);
       this.recipeService.getRecipes().subscribe({

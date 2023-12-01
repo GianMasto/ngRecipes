@@ -25,7 +25,7 @@ export class RecipeCardComponent {
   deleteRecipe(recipe: any): void {
     const { _id } = recipe;
     Swal.fire({
-      title: `¿Está seguro de eliminar la canción ${recipe.name}?`,
+      title: `¿Está seguro de eliminar la receta ${recipe.name}?`,
       showDenyButton: true,
       showCancelButton: false,
       confirmButtonText: 'Sí',
