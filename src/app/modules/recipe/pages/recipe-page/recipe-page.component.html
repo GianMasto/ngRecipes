@@ -11,12 +11,24 @@
           <h3 class="recipe-ingredients-title mb-3">Ingredients:</h3>
           <ul class="recipe-ingredients">
             <li
-              class="recipe-ingredient"
-              *ngFor="let ingredient of recipe.ingredients"
+            class="recipe-ingredient"
+            *ngFor="let ingredient of recipe.ingredients"
             >
-              {{ ingredient.amount }} {{ ingredient.name }}
-            </li>
-          </ul>
+            {{ ingredient.amount }} {{ ingredient.name }}
+          </li>
+        </ul>
+        <button (click)="openFormEdit()" class="btn btn-primary">Editar</button>
+
+        <form *ngIf="openForm" [formGroup]="formEdit" (ngSubmit)="submitChanges(recipe,$event)">
+        
+          <input formControlName="name" type="text" placeholder="name">
+          <input formControlName="description" type="text" placeholder="description">
+          <input formControlName="amount" type="number" placeholder="amount">
+          <input formControlName="ingredients" type="text" placeholder="ingredients">
+          <button [disabled]="formEdit.invalid" class="btn btn-primary">Guardar</button>
+          <button (click)="closeEdition()" class="btn btn-primary">Cancelar</button>
+
+        </form>
 
           <div class="recipe-buttons">
             <button
