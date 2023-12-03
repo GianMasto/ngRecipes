@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RecipesService } from '@shared/services/recipes.service';
 import { RecipeModel } from '@core/models/recipe.model';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-add-recipe-card',
   templateUrl: './add-recipe-card.component.html',
@@ -52,8 +52,15 @@ export class AddRecipeCardComponent implements OnInit {
         name:ingredients
       }]
     };
-    console.log(body.ingredients);
+    this.formNewRecipe.reset()
     this.recipeService.addRecipe(body).subscribe(response => {
+      Swal.fire({
+        title: 'Receta agregada!',
+        icon: 'success',
+        customClass: {
+          popup: 'sweet-popup',
+        },
+      });
       console.log(response);
       this.recipeService.getRecipes().subscribe({
         next: data => {

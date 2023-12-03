@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RecipeModel } from '@core/models/recipe.model';
-import { RecipesService } from '@shared/services/recipes.service';
-import { SearchService } from '@shared/services/search.service';
-
+import { RecipeModel } from '../../../../core/models/recipe.model';
+import { RecipesService } from '../../../../shared/services/recipes.service';
+import { SearchService } from '../../../../shared/services/search.service';
 @Component({
   selector: 'app-recipes-page',
   templateUrl: './recipes-page.component.html',

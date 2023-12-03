@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {HttpClientTestingModule} from '@angular/common/http/testing'
 import { RecipeCardComponent } from './recipe-card.component';
+import { CutTextPipe } from '@shared/pipes/cut-text.pipe';
+import { IconsModule } from 'src/app/icons/icons.module';
 
 describe('RecipeCardComponent', () => {
   let component: RecipeCardComponent;
@@ -8,7 +10,8 @@ describe('RecipeCardComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RecipeCardComponent]
+      imports:[HttpClientTestingModule,IconsModule],
+      declarations: [RecipeCardComponent,CutTextPipe]
     });
     fixture = TestBed.createComponent(RecipeCardComponent);
     component = fixture.componentInstance;

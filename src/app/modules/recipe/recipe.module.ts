@@ -9,5 +9,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [RecipePageComponent],
   imports: [CommonModule, RecipeRoutingModule, IconsModule,ReactiveFormsModule],
+  exports:[RecipePageComponent]
 })
 export class RecipeModule {}
