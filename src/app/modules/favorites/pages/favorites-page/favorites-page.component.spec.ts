@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FavoritesPageComponent } from './favorites-page.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('FavoritesPageComponent', () => {
   let component: FavoritesPageComponent;
@@ -8,6 +9,7 @@ describe('FavoritesPageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports:[HttpClientTestingModule],
       declarations: [FavoritesPageComponent]
     });
     fixture = TestBed.createComponent(FavoritesPageComponent);

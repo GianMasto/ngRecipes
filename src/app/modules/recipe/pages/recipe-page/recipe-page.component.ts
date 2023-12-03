@@ -4,7 +4,8 @@ import { RecipeModel } from '@core/models/recipe.model';
 import { RecipesService } from '@shared/services/recipes.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ShoppingListService } from '@shared/services/shopping-list.service';
-import { CookieService } from 'ngx-cookie-service';
+import { FormControl, Validators,FormGroup } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-recipe-page',
@@ -33,10 +34,6 @@ export class RecipePageComponent implements OnInit {
         this.recipe = r.find(recipe => recipe._id === this.id) as RecipeModel;
       },
     });
-
-    // this.recipeService.recipes$.subscribe(
-    //   response=>console.log(response)
-    // )
 
     this.formEdit = new FormGroup({
       name: new FormControl('', [

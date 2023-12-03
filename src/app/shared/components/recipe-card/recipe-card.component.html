@@ -11,7 +11,9 @@
     <p class="recipe-excerpt mb-4">{{ recipe.description | cutText: 150 }}</p>
     <div class="recipe-buttons">
       <a [routerLink]="['/recipe', recipe._id]" class="read-more">Read More</a>
-      <button (click)="deleteRecipe(recipe)" class="add-to-favorites">Delete recipe</button>
+      <button (click)="deleteRecipe(recipe)" class="add-to-favorites">
+        Delete
+      </button>
       <button
         class="add-to-cart"
         [ngClass]="{
