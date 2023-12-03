@@ -1,6 +1,6 @@
 <div class="recipe">
   <a [routerLink]="['/recipe', recipe._id]" class="recipe-img">
-    <img [src]="recipe.imagePath" alt="" />
+    <img [src]="recipe.imagePath" alt="" appImgBroken />
   </a>
   <div class="recipe-body">
     <h2 class="recipe-title">{{ recipe.name }}</h2>
@@ -11,7 +11,6 @@
     <p class="recipe-excerpt mb-4">{{ recipe.description | cutText: 150 }}</p>
     <div class="recipe-buttons">
       <a [routerLink]="['/recipe', recipe._id]" class="read-more">Read More</a>
-      <button (click)="deleteRecipe(recipe)" class="add-to-favorites">Delete recipe</button>
       <button
         class="add-to-cart"
         [ngClass]="{
@@ -23,8 +22,8 @@
       </button>
       <button
         class="add-to-favorites"
-        [ngClass]="{ selected: recipeService.isFavorite(recipe._id) }"
-        (click)="recipeService.toggleFavorite(recipe._id)"
+        [ngClass]="{ selected: favoritesService.isFavorite(recipe._id) }"
+        (click)="favoritesService.toggleFavorite(recipe._id)"
       >
         <i-feather name="bookmark"></i-feather>
       </button>
@@ -34,10 +33,7 @@
       >
         <i-feather name="edit"></i-feather>
       </button>
-      <button
-        class="delete"
-        *ngIf="recipe.userEmail === cookieService.get('cookieService')"
-      >
+      <button (click)="deleteRecipe(recipe)" class="delete">
         <i-feather name="trash"></i-feather>
       </button>
     </div>

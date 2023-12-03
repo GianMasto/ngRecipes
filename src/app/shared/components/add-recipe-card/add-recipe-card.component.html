@@ -9,32 +9,40 @@
   <p class="add-text">Add new recipe</p>
 </button> -->
 
-<form (ngSubmit)="addNewRecipe($event)" [formGroup]="formNewRecipe" class="form">
-  <div>
-    <input formControlName="_id" type="text" placeholder="id" class="form-input" />
-</div>
-  <div>
-      <input formControlName="name" type="text" placeholder="Name" class="form-input" />
+<form (ngSubmit)="addNewRecipe($event)" [formGroup]="formNewRecipe">
+  <div class="form-element">
+    <input formControlName="_id" type="text" placeholder="id" />
   </div>
-  <div>
-      <input formControlName="description" type="text" placeholder="description" class="form-input" />
+  <div class="form-element">
+    <input formControlName="name" type="text" placeholder="Name" />
   </div>
-  <div>
-    <input formControlName="amount" type="number" placeholder="amount" class="form-input" />
- </div>
-  <div>
-      <input formControlName="ingredients" type="text" placeholder="ingredients" class="form-input" />
+  <div class="form-element">
+    <input
+      formControlName="description"
+      type="text"
+      placeholder="description"
+    />
   </div>
-  <div>
-      <input formControlName="imagePath" type="text" placeholder="imagePath" class="form-input" />
+  <div class="form-element">
+    <input formControlName="amount" type="number" placeholder="amount" />
   </div>
-  <div>
-    <input formControlName="userEmail" type="email" placeholder="email" class="form-input" />
-</div>
-  <div>
-    <input formControlName="__v" type="number" placeholder="" class="form-input" />
-</div>
-  <div>
-      <button [disabled]="formNewRecipe.invalid" class="btn">Add recipe</button>
+  <div class="form-element">
+    <input
+      formControlName="ingredients"
+      type="text"
+      placeholder="ingredients"
+    />
   </div>
+  <div class="form-element">
+    <input formControlName="imagePath" type="text" placeholder="imagePath" />
+  </div>
+  <div class="form-element">
+    <input formControlName="userEmail" type="email" placeholder="email" />
+  </div>
+  <div class="form-element">
+    <input formControlName="__v" type="number" placeholder="" />
+  </div>
+  <button [disabled]="formNewRecipe.invalid" class="form-button">
+    Add recipe
+  </button>
 </form>

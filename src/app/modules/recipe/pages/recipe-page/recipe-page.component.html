@@ -4,31 +4,68 @@
       <div class="col-md-8">
         <div class="recipe">
           <div class="recipe-img mb-4">
-            <img [src]="recipe.imagePath" alt="" />
+            <img [src]="recipe.imagePath" alt="" appImgBroken />
           </div>
           <h2 class="recipe-title mb-3">{{ recipe.name }}</h2>
           <p class="recipe-description mb-3">{{ recipe.description }}</p>
           <h3 class="recipe-ingredients-title mb-3">Ingredients:</h3>
           <ul class="recipe-ingredients">
             <li
-            class="recipe-ingredient"
-            *ngFor="let ingredient of recipe.ingredients"
+              class="recipe-ingredient"
+              *ngFor="let ingredient of recipe.ingredients"
             >
-            {{ ingredient.amount }} {{ ingredient.name }}
-          </li>
-        </ul>
-        <button (click)="openFormEdit()" class="btn btn-primary">Editar</button>
+              {{ ingredient.amount }} {{ ingredient.name }}
+            </li>
+          </ul>
+          <button (click)="openFormEdit()" class="form-button ms-0 me-4 mt-4">
+            Editar
+          </button>
 
-        <form *ngIf="openForm" [formGroup]="formEdit" (ngSubmit)="submitChanges(recipe,$event)">
-        
-          <input formControlName="name" type="text" placeholder="name">
-          <input formControlName="description" type="text" placeholder="description">
-          <input formControlName="amount" type="number" placeholder="amount">
-          <input formControlName="ingredients" type="text" placeholder="ingredients">
-          <button [disabled]="formEdit.invalid" class="btn btn-primary">Guardar</button>
-          <button (click)="closeEdition()" class="btn btn-primary">Cancelar</button>
-
-        </form>
+          <form
+            class="mt-4"
+            *ngIf="openForm"
+            [formGroup]="formEdit"
+            (ngSubmit)="submitChanges(recipe, $event)"
+          >
+            <div class="form-element">
+              <input formControlName="name" type="text" placeholder="name" />
+            </div>
+            <div class="form-element">
+              <input
+                formControlName="description"
+                type="text"
+                placeholder="description"
+              />
+            </div>
+            <div class="form-element">
+              <input
+                formControlName="amount"
+                type="number"
+                placeholder="amount"
+              />
+            </div>
+            <div class="form-element">
+              <input
+                formControlName="ingredients"
+                type="text"
+                placeholder="ingredients"
+              />
+            </div>
+            <div class="d-flex">
+              <button
+                [disabled]="formEdit.invalid"
+                class="form-button ms-0 me-4 mt-4"
+              >
+                Guardar
+              </button>
+              <button
+                (click)="closeEdition()"
+                class="form-button ms-0 me-4 mt-4"
+              >
+                Cancelar
+              </button>
+            </div>
+          </form>
 
           <div class="recipe-buttons">
             <button
@@ -42,17 +79,17 @@
             </button>
             <button
               class="add-to-favorites"
-              [ngClass]="{ selected: recipeService.isFavorite(recipe._id) }"
-              (click)="recipeService.toggleFavorite(recipe._id)"
+              [ngClass]="{ selected: favoritesService.isFavorite(recipe._id) }"
+              (click)="favoritesService.toggleFavorite(recipe._id)"
             >
               <i-feather name="bookmark"></i-feather>
             </button>
-            <button
+            <!-- <button
               class="edit"
               *ngIf="recipe.userEmail === cookieService.get('cookieService')"
             >
               <i-feather name="edit"></i-feather>
-            </button>
+            </button> -->
             <button
               class="delete"
               *ngIf="recipe.userEmail === cookieService.get('cookieService')"

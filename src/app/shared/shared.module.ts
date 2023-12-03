@@ -6,9 +6,10 @@ import { AddRecipeCardComponent } from './components/add-recipe-card/add-recipe-
 import { RouterModule } from '@angular/router';
 import { CutTextPipe } from './pipes/cut-text.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ImgBrokenDirective } from './directives/img-broken.directive';
 
 @NgModule({
-  declarations: [RecipeCardComponent, AddRecipeCardComponent, CutTextPipe],
+  declarations: [RecipeCardComponent, AddRecipeCardComponent, CutTextPipe, ImgBrokenDirective],
   imports: [CommonModule, IconsModule, RouterModule, ReactiveFormsModule],
   exports: [RecipeCardComponent, AddRecipeCardComponent],
 })

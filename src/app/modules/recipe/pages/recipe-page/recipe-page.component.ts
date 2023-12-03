@@ -6,6 +6,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { ShoppingListService } from '@shared/services/shopping-list.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { FavoritesService } from '@shared/services/favorites.service';
 
 @Component({
   selector: 'app-recipe-page',
@@ -23,6 +24,7 @@ export class RecipePageComponent implements OnInit {
     public recipeService: RecipesService,
     public cookieService: CookieService,
     public shoppingListService: ShoppingListService,
+    public favoritesService: FavoritesService,
     private router: Router
   ) {}
 
@@ -40,9 +42,7 @@ export class RecipePageComponent implements OnInit {
     // )
 
     this.formEdit = new FormGroup({
-      name: new FormControl('', [
-      Validators.required, 
-      Validators.minLength(4)]),
+      name: new FormControl('', [Validators.required, Validators.minLength(4)]),
       amount: new FormControl('', [
         Validators.required,
         Validators.minLength(1),

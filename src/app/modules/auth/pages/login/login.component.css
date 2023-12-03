@@ -49,9 +49,9 @@ a {
   color: var(--text-color);
 }
 input.ng-invalid.ng-touched {
-  border: solid 2px red !important
+  border: solid 1px var(--color-red) !important;
 }
 
 input.ng-valid.ng-touched {
-  border: solid 2px rgb(81,255,0) !important
+  border: solid 1px var(--color-green) !important;
 }

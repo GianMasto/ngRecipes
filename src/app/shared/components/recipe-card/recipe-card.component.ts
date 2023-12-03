@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { RecipeModel } from '@core/models/recipe.model';
+import { FavoritesService } from '@shared/services/favorites.service';
 import { RecipesService } from '@shared/services/recipes.service';
 import { ShoppingListService } from '@shared/services/shopping-list.service';
 import { CookieService } from 'ngx-cookie-service';
@@ -19,7 +20,8 @@ export class RecipeCardComponent {
   constructor(
     public recipeService: RecipesService,
     public cookieService: CookieService,
-    public shoppingListService: ShoppingListService
+    public shoppingListService: ShoppingListService,
+    public favoritesService: FavoritesService
   ) {}
 
   deleteRecipe(recipe: any): void {

@@ -1,5 +1,6 @@
-import { Component, OnInit,OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RecipeModel } from '@core/models/recipe.model';
+import { FavoritesService } from '@shared/services/favorites.service';
 import { RecipesService } from '@shared/services/recipes.service';
 import { ShoppingListService } from '@shared/services/shopping-list.service';
 
@@ -8,12 +9,13 @@ import { ShoppingListService } from '@shared/services/shopping-list.service';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
 })
-export class HomePageComponent implements OnInit,OnDestroy {
+export class HomePageComponent implements OnInit, OnDestroy {
   buttons!: { label: string; path: string }[];
 
   constructor(
     private recipesService: RecipesService,
-    private shoppingListService: ShoppingListService
+    private shoppingListService: ShoppingListService,
+    private favoritesService: FavoritesService
   ) {}
 
   ngOnInit(): void {
@@ -40,14 +42,11 @@ export class HomePageComponent implements OnInit,OnDestroy {
       error: e => console.error(e),
     });
 
-    this.recipesService.setFavorites(this.recipesService.getFavorites());
+    this.favoritesService.setFavorites(this.favoritesService.getFavorites());
 
     this.shoppingListService.setShoppingList(
       this.shoppingListService.getShoppingList()
     );
   }
-  ngOnDestroy(): void {
-    
-  }
-  
+  ngOnDestroy(): void {}
 }
