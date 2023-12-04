@@ -7,7 +7,7 @@
 
 ### Instalación del proyecto:
 
-- Para instalar se puede utilizar el comando `git clone` mas la URL del repositorio o también descargando un archivo comprimido de la mismo.
+- Para instalar se puede utilizar el comando `git clone` mas la URL del repositorio o también descargando un archivo comprimido del mismo.
 - Una vez instalado, se deben instalar los `node_modules` a través del comando `npm i` en la carpeta raíz del proyecto.
 - Luego, para correr la aplicación se debe utilizar el comando `ng s`.
 
