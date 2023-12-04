@@ -1,6 +1,9 @@
 <section class="shopping-list">
   <div class="cont">
-    <div class="row justify-content-center">
+    <div
+      class="row justify-content-center"
+      *ngIf="objectKeys(ingredients).length > 0"
+    >
       <div class="col-md-8 col-lg-6">
         <div class="shopping-list-body">
           <ul class="shopping-list-table">
@@ -18,7 +21,17 @@
             </li>
           </ul>
         </div>
+
+        <button
+          class="form-button"
+          (click)="shoppingListService.clearShoppingList()"
+        >
+          Clear
+        </button>
       </div>
     </div>
+    <p class="text-center" *ngIf="objectKeys(ingredients).length <= 0">
+      Your shopping list is empty
+    </p>
   </div>
 </section>

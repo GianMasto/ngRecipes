@@ -16,7 +16,7 @@ export class ShoppingListPageComponent implements OnInit {
 
   constructor(
     private recipesService: RecipesService,
-    private shoppingListService: ShoppingListService
+    public shoppingListService: ShoppingListService
   ) {}
 
   ngOnInit(): void {
@@ -25,9 +25,9 @@ export class ShoppingListPageComponent implements OnInit {
         this.allRecipes = r;
         this.shoppingListService.shoppingList$.subscribe({
           next: ids => {
+            this.ingredients = {};
             ids.forEach(id => {
               const recipe = this.allRecipes.find(recipe => recipe._id === id);
-
               recipe?.ingredients.forEach(({ amount, name }) => {
                 const key = name.toLowerCase();
                 if (name in this.ingredients) {

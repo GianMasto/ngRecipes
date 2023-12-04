@@ -34,6 +34,10 @@ export class ShoppingListService {
     this.setShoppingList(newShopArr);
   }
 
+  clearShoppingList() {
+    this.setShoppingList([]);
+  }
+
   isInShoppingList(id: string) {
     return this.getShoppingList().includes(id);
   }

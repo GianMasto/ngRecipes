@@ -8,6 +8,7 @@
   --color-red-alpha: #ff333380;
   --color-grey: #acacac;
   --color-green: #33ff81;
+  --color-green-alpha: #33ff8180;
   --animation: all 0.3s ease-in;
   --border-radius-1: 1rem;
   --border-radius-2: 2rem;
@@ -85,4 +86,51 @@ body {
   box-shadow: none;
   margin: 0 auto;
   margin-top: 2rem;
+}
+
+div:where(.swal2-container).swal2-center > .swal2-popup {
+  border-radius: var(--border-radius-1) !important;
+}
+
+div:where(.swal2-container) h2:where(.swal2-title) {
+  font-family: 'Raleway', sans-serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 1.5rem !important;
+}
+div:where(.swal2-icon).swal2-success [class^='swal2-success-line'] {
+  background-color: var(--color-green) !important;
+}
+div:where(.swal2-icon).swal2-success .swal2-success-ring {
+  border: 0.25em solid var(--color-green-alpha) !important;
+}
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+  min-width: 9rem !important;
+  text-align: center !important;
+  padding: 0.5rem !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  font-size: 0.7rem !important;
+  transition: var(--animation) !important;
+  border-radius: var(--border-radius-1) !important;
+  background-color: var(--color-1) !important;
+  color: var(--background-color-2) !important;
+  border: 1px solid var(--color-1-alpha) !important;
+  box-shadow: none !important;
+}
+div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
+  min-width: 9rem !important;
+  text-align: center !important;
+  padding: 0.5rem !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  font-size: 0.7rem !important;
+  transition: var(--animation) !important;
+  border-radius: var(--border-radius-1) !important;
+  background-color: var(--color-red-alpha) !important;
+  color: var(--background-color-2) !important;
+  border: 1px solid var(--color-1-alpha) !important;
+  box-shadow: none !important;
 }

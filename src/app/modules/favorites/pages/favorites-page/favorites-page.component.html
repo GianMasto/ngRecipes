@@ -1,6 +1,6 @@
 <section class="favorites">
   <div class="cont">
-    <div class="row">
+    <div class="row" *ngIf="favoriteRecipes.length > 0">
       <div
         class="col-md-4 col-sm-6 pb-4"
         *ngFor="let recipe of favoriteRecipes"
@@ -8,5 +8,8 @@
         <app-recipe-card [recipe]="recipe"></app-recipe-card>
       </div>
     </div>
+    <p class="text-center" *ngIf="favoriteRecipes.length <= 0">
+      You have no favorite recipes
+    </p>
   </div>
 </section>
