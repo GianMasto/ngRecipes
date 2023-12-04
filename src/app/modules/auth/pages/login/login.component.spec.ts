@@ -18,7 +18,21 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('Debería retornar inválido el form', () => {
+
+    const mockCredentials={
+      email:'enzo@gmail.com',
+      password:'******'
+    }
+
+    const emailForm: any =component.formLogin.get('email')
+    const passwordForm :any = component.formLogin.get('password')
+
+    emailForm.setValue(mockCredentials.email)
+    passwordForm.setValue(mockCredentials.password)
+    
+    expect(component.formLogin.invalid).toEqual(false);
+
+  
   });
 });
