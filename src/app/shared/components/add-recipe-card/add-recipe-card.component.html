@@ -9,7 +9,11 @@
   <p class="add-text">Add new recipe</p>
 </button> -->
 
-<form (ngSubmit)="addNewRecipe($event)" [formGroup]="formNewRecipe">
+<form
+  class="add-recipe-form"
+  (ngSubmit)="addNewRecipe($event)"
+  [formGroup]="formNewRecipe"
+>
   <div class="form-element">
     <input formControlName="_id" type="text" placeholder="id" />
   </div>
