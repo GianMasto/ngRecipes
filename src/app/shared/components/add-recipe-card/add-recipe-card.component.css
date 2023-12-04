@@ -22,7 +22,12 @@
   font-weight: 700;
   font-size: 1rem;
 } */
-
+.add-recipe-form {
+  background-color: var(--background-color-2);
+  border-radius: var(--border-radius-1);
+  box-shadow: var(--color-1-alpha) 0 0 20px 0;
+  padding: 1.5rem;
+}
 .form {
   display: flex;
   flex-direction: column;
