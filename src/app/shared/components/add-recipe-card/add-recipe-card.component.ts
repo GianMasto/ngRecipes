@@ -15,7 +15,7 @@ export class AddRecipeCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.formNewRecipe = new FormGroup({
-      _id: new FormControl('', [Validators.required, Validators.minLength(1)]),
+      // _id: new FormControl('', [Validators.required, Validators.minLength(1)]),
       name: new FormControl('', [Validators.required, Validators.minLength(4)]),
       description: new FormControl('', [
         Validators.required,
@@ -33,12 +33,14 @@ export class AddRecipeCardComponent implements OnInit {
         Validators.required,
         Validators.minLength(4),
       ]),
+      /*
       userEmail: new FormControl('', [
         Validators.email,
         Validators.required,
         Validators.minLength(4),
       ]),
       __v: new FormControl('', [Validators.required, Validators.minLength(4)]),
+      */
     });
   }
 
