@@ -14,9 +14,11 @@
   (ngSubmit)="addNewRecipe($event)"
   [formGroup]="formNewRecipe"
 >
+  <!-- 
   <div class="form-element">
     <input formControlName="_id" type="text" placeholder="id" />
-  </div>
+  </div> 
+  -->
   <div class="form-element">
     <input formControlName="name" type="text" placeholder="Name" />
   </div>
@@ -40,12 +42,14 @@
   <div class="form-element">
     <input formControlName="imagePath" type="text" placeholder="imagePath" />
   </div>
+  <!--
   <div class="form-element">
     <input formControlName="userEmail" type="email" placeholder="email" />
   </div>
   <div class="form-element">
     <input formControlName="__v" type="number" placeholder="" />
   </div>
+  -->
   <button [disabled]="formNewRecipe.invalid" class="form-button">
     Add recipe
   </button>
